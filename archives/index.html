@@ -42,7 +42,7 @@
     <meta name="description" content="这是属于空空如也的地盘">
 <meta property="og:type" content="website">
 <meta property="og:title" content="空空如也的世界">
-<meta property="og:url" content="http://simple86.github.io/archives/index.html">
+<meta property="og:url" content="http://jiangzh.site/archives/index.html">
 <meta property="og:site_name" content="空空如也的世界">
 <meta property="og:description" content="这是属于空空如也的地盘">
 <meta property="og:locale" content="en_US">
@@ -75,7 +75,7 @@
         <hgroup class="introduce">
           <h5 class="nickname" id="name">Simple</h5>
           
-            <div id="yiyanmotto" class="motto">&nbsp;</div>
+            <div id="mymotto" class="motto"></div>
           
         </hgroup>
       </div>
@@ -196,7 +196,7 @@
             <div class="waterfall">
     
 
-        <article class="archive-article" onclick="location.href='/posts/undefined'">
+        <article class="archive-article" onclick="location.href='/posts/f9072a32'">
     <div class="archive-article-date">
       
       <time class="my-post-time">
@@ -211,7 +211,7 @@
 
   
     <h3 class="post-title" itemprop="name">
-      <a href="/posts/undefined">MY FIRST BLOG HERE</a>
+      <a href="/posts/f9072a32">MY FIRST BLOG HERE</a>
     </h3>
   
 
@@ -226,7 +226,7 @@
 
     
 
-        <article class="archive-article" onclick="location.href='/posts/undefined'">
+        <article class="archive-article" onclick="location.href='/posts/4a17b156'">
     <div class="archive-article-date">
       
       <time class="my-post-time">
@@ -241,7 +241,7 @@
 
   
     <h3 class="post-title" itemprop="name">
-      <a href="/posts/undefined">Hello World</a>
+      <a href="/posts/4a17b156">Hello World</a>
     </h3>
   
 
@@ -262,9 +262,9 @@
     <div class="footer-content">
         <span class="power">
             <i class="icon icon-lg icon-copyright"></i>
-            2017
+            2020
             <i class="icon icon-lg icon-heart"></i>
-            <a href="http://simple86.github.io">simple86.github.io</a>
+            <a href="http://jiangzh.site">jiangzh.site</a>
             <br/>
             Power by
             <a href="https://hexo.io/" target="_blank" rel="external nofollow">Hexo</a>&nbsp;·&nbsp;
@@ -398,7 +398,12 @@ postshow();
 
 /* 座右铭 */
 
-   getHitokoto();
+    elasticText({
+        id: "mymotto",
+        duration: 100,
+        effact: "easeOut",
+        content: "随意摇摆"
+    });
 
 
 

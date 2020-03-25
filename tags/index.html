@@ -42,7 +42,7 @@
     <meta name="description" content="document.querySelectorAll(&#39;.github-emoji&#39;)           .forEach(el &#x3D;&gt; {             if (!el.dataset.src) { return; }             const img &#x3D; document.createElement(&#39;img&#39;);             img.style">
 <meta property="og:type" content="website">
 <meta property="og:title" content="tags">
-<meta property="og:url" content="http://simple86.github.io/tags/index.html">
+<meta property="og:url" content="http://jiangzh.site/tags/index.html">
 <meta property="og:site_name" content="空空如也的世界">
 <meta property="og:description" content="document.querySelectorAll(&#39;.github-emoji&#39;)           .forEach(el &#x3D;&gt; {             if (!el.dataset.src) { return; }             const img &#x3D; document.createElement(&#39;img&#39;);             img.style">
 <meta property="og:locale" content="en_US">
@@ -77,7 +77,7 @@
         <hgroup class="introduce">
           <h5 class="nickname" id="name">Simple</h5>
           
-            <div id="yiyanmotto" class="motto">&nbsp;</div>
+            <div id="mymotto" class="motto"></div>
           
         </hgroup>
       </div>
@@ -181,7 +181,7 @@
                     <h1 id="pagetitle" class="archivestitle"></h1>
                     <script>
                         if(location.href.indexOf('about')!=-1){
-                            pagetitle.textContent = '一个坏掉的番茄';
+                            pagetitle.textContent = 'Mr. Simple';
                         }else if(location.href.indexOf('tags')!=-1||location.href.indexOf('categories')!=-1){
                             var a=location.href.substring(location.href.length-5,location.href.length-1);
                             if(a==='tags'){
@@ -227,9 +227,9 @@
     <div class="footer-content">
         <span class="power">
             <i class="icon icon-lg icon-copyright"></i>
-            2017
+            2020
             <i class="icon icon-lg icon-heart"></i>
-            <a href="http://simple86.github.io">simple86.github.io</a>
+            <a href="http://jiangzh.site">jiangzh.site</a>
             <br/>
             Power by
             <a href="https://hexo.io/" target="_blank" rel="external nofollow">Hexo</a>&nbsp;·&nbsp;
@@ -363,7 +363,12 @@ postshow();
 
 /* 座右铭 */
 
-   getHitokoto();
+    elasticText({
+        id: "mymotto",
+        duration: 100,
+        effact: "easeOut",
+        content: "随意摇摆"
+    });
 
 
 

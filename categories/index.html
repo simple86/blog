@@ -139,8 +139,8 @@
                 <i class="icon icon-lg icon-github github"></i>
               </a>
           
-              <a class="nav2item" data-title="微博" href="https://weibo.com/" target="_blank"title="微博" >
-                <i class="icon icon-lg icon-weibo weibo"></i>
+              <a class="nav2item" data-title="codeforces" href="https://codeforces.com/profile/kkry2333" target="_blank"title="codeforces" >
+                <i class="icon icon-lg icon-code code"></i>
               </a>
           
 
@@ -172,9 +172,6 @@
             </a>
         </div>
         
-        <a href="../../atom.xml" target="_blank" class="header-icon waves-effect waves-circle waves-light" id="Rss">
-            <i class="icon icon-lg icon-rss"></i>
-        </a>
     </div>
 </header>
 <header class="content-header categories-header">
@@ -189,14 +186,16 @@
                 
                     <h1 id="pagetitle" class="archivestitle"></h1>
                     <script>
-                        if(location.href.indexOf('about')!=-1){
+						if(location.href.indexOf('comments')!=-1){
+                            pagetitle.textContent = '悄悄话，小声说';
+                        }else if(location.href.indexOf('about')!=-1){
                             pagetitle.textContent = 'Mr. Simple';
                         }else if(location.href.indexOf('tags')!=-1||location.href.indexOf('categories')!=-1){
                             var a=location.href.substring(location.href.length-5,location.href.length-1);
                             if(a==='tags'){
-                                pagetitle.textContent = '不积小流无以成江海';
+                                pagetitle.textContent = '五花八门';
                             }else if(a==='ries'){
-                                pagetitle.textContent = '不积跬步无以至千里';
+                                pagetitle.textContent = '分门别类';
                             }
                         }
                     </script>
@@ -224,14 +223,9 @@
     <div class="footer-content">
         <span class="power">
             <i class="icon icon-lg icon-copyright"></i>
-            2020
-            <i class="icon icon-lg icon-heart"></i>
+            2020-2021
+            <i class="icon icon-lg icon-at"></i>
             <a href="http://jiangzh.site/blog">jiangzh.site</a>
-            <br/>
-            Power by
-            <a href="https://hexo.io/" target="_blank" rel="external nofollow">Hexo</a>&nbsp;·&nbsp;
-            Theme
-            <a class="tomotoeslink" href="https://github.com/tomotoes/hexo-theme-tomotoes/" target="_blank" rel="external nofollow">tomotoes</a>
         </span>
 
         <br/>
@@ -258,8 +252,9 @@
 
         </span>
         <br/>
-
-        <span class="license">This blog is licensed under a <a rel="license noopener" rel="external nofollow noopener" href="https://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Attribution 4.0 International License</a>.</span>
+		<span>
+			<i class="icon icon-lg icon-bike"></i>
+        </span>
     </div>
 </footer>
 
@@ -379,7 +374,7 @@ G($(".post-content"), location.href, "Simple");
 /* 控制台 */
 if (window.console && window.console.log) {
 	setTimeout(function () {
-		console.log("\n %c 一个坏掉的番茄 %c  © Simon Ma  http://simple86.github.io \n\n", "color:#FFFFFB;background:#1abc9c;padding:5px 0;border-radius:.5rem 0 0 .5rem;", "color:#FFFFFB;background:#080808;padding:5px 0;border-radius:0 .5rem .5rem 0;");
+		console.log("\n %c Mr. Simple %c  © Simple  http://simple86.github.io \n\n", "color:#FFFFFB;background:#1abc9c;padding:5px 0;border-radius:.5rem 0 0 .5rem;", "color:#FFFFFB;background:#080808;padding:5px 0;border-radius:0 .5rem .5rem 0;");
 	}, 0);
 }
 
@@ -389,6 +384,27 @@ if (window.console && window.console.log) {
 
 
 <!-- 公式渲染 -->
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
 
 
 

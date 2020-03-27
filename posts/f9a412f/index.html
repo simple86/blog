@@ -363,24 +363,31 @@
     
 
     
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "DFA1CzdTyMaACcej2KQeFOLw-gzGzoHsz",
+            appKey: "knmOTBOT6N43dOgzo10MRo1J",
+            avatar: "robohash",
+            placeholder: "真不打算留下点什么吗？",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
 	
-	<div id="lv-container" data-id="city" data-uid="MTAyMC80OTMxMy8yNTgwNQ==">
-	<script type="text/javascript">
-	   (function(d, s) {
-		   var j, e = d.getElementsByTagName(s)[0];
-
-		   if (typeof LivereTower === 'function') { return; }
-
-		   j = d.createElement(s);
-		   j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-		   j.async = true;
-
-		   e.parentNode.insertBefore(j, e);
-	   })(document, 'script');
-	</script>
-	<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
-	</div>
-
 
 
 </article>

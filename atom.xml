@@ -3,11 +3,11 @@
   <title>空空如也的世界</title>
   <icon>https://www.gravatar.com/avatar/2bba64cde11f3322f55b76c843b3326c</icon>
   <subtitle>空空如也</subtitle>
-  <link href="/blog/atom.xml" rel="self"/>
+  <link href="/atom.xml" rel="self"/>
   
-  <link href="http://jiangzh.site/blog/"/>
+  <link href="http://jiangzh.site/"/>
   <updated>2020-03-26T04:48:06.112Z</updated>
-  <id>http://jiangzh.site/blog/</id>
+  <id>http://jiangzh.site/</id>
   
   <author>
     <name>Simple</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>这是一个正式的博客</title>
-    <link href="http://jiangzh.site/blog/posts/f9a412f/"/>
-    <id>http://jiangzh.site/blog/posts/f9a412f/</id>
+    <link href="http://jiangzh.site/posts/f9a412f/"/>
+    <id>http://jiangzh.site/posts/f9a412f/</id>
     <published>2020-03-25T15:36:26.000Z</published>
     <updated>2020-03-26T04:48:06.112Z</updated>
     
@@ -36,14 +36,14 @@
     
     
     
-      <category term="随手记录" scheme="http://jiangzh.site/blog/tags/%E9%9A%8F%E6%89%8B%E8%AE%B0%E5%BD%95/"/>
+      <category term="随手记录" scheme="http://jiangzh.site/tags/%E9%9A%8F%E6%89%8B%E8%AE%B0%E5%BD%95/"/>
     
   </entry>
   
   <entry>
     <title>my_first_blog</title>
-    <link href="http://jiangzh.site/blog/posts/c063e824/"/>
-    <id>http://jiangzh.site/blog/posts/c063e824/</id>
+    <link href="http://jiangzh.site/posts/c063e824/"/>
+    <id>http://jiangzh.site/posts/c063e824/</id>
     <published>2020-03-25T13:21:06.000Z</published>
     <updated>2020-03-25T16:42:00.061Z</updated>
     
@@ -60,7 +60,7 @@
     
     
     
-      <category term="测试" scheme="http://jiangzh.site/blog/tags/%E6%B5%8B%E8%AF%95/"/>
+      <category term="测试" scheme="http://jiangzh.site/tags/%E6%B5%8B%E8%AF%95/"/>
     
   </entry>
   

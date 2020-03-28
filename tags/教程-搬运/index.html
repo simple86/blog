@@ -5,10 +5,10 @@
     <meta charset="utf-8">
     
     
-    <link rel="canonical" href="https://jiangzh.site/blog/blog/archives/2020/">
+    <link rel="canonical" href="https://jiangzh.site/blog/blog/tags/%E6%95%99%E7%A8%8B-%E6%90%AC%E8%BF%90/">
     
     
-    <title>归档: 2020 | 空空如也的世界 | 空空如也</title>
+    <title>标签: 教程 搬运 | 空空如也的世界 | 空空如也</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
     
     <meta name="theme-color" content="#77AAFF">
@@ -44,7 +44,7 @@
     <meta name="description" content="这是属于空空如也的地盘">
 <meta property="og:type" content="website">
 <meta property="og:title" content="空空如也的世界">
-<meta property="og:url" content="http://jiangzh.site/blog/archives/2020/">
+<meta property="og:url" content="http://jiangzh.site/blog/tags/%E6%95%99%E7%A8%8B-%E6%90%AC%E8%BF%90/">
 <meta property="og:site_name" content="空空如也的世界">
 <meta property="og:description" content="这是属于空空如也的地盘">
 <meta property="og:locale" content="en_US">
@@ -92,7 +92,7 @@
                   </a>
               </li>
             
-              <li class="waves-block waves-effect active">
+              <li class="waves-block waves-effect">
                   <a href="/blog/archives"  >
                     <i class="icon icon-lg icon-archives"></i>
                     <span>归 档</span><i class="icon icon-lg icon-caret-left"></i>
@@ -106,7 +106,7 @@
                   </a>
               </li>
             
-              <li class="waves-block waves-effect">
+              <li class="waves-block waves-effect active">
                   <a href="/blog/tags"  >
                     <i class="icon icon-lg icon-tags"></i>
                     <span>标 签</span><i class="icon icon-lg icon-caret-left"></i>
@@ -158,7 +158,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">归档</div>
+        <div class="flex-col header-title ellipsis">标签: 教程 搬运</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -172,7 +172,7 @@
         
     </div>
 </header>
-<header class="content-header archives-header">
+<header class="content-header tags-header">
     
     
     <div class="container fade-scale">
@@ -182,7 +182,21 @@
             </h1>
             <h5 class="subtitle">
                 
-                    <h1 class="archivestitle">日积月累</h1>
+                    <h1 id="pagetitle" class="archivestitle"></h1>
+                    <script>
+						if(location.href.indexOf('comments')!=-1){
+                            pagetitle.textContent = '悄悄话，小声说';
+                        }else if(location.href.indexOf('about')!=-1){
+                            pagetitle.textContent = 'Mr. Simple';
+                        }else if(location.href.indexOf('tags')!=-1||location.href.indexOf('categories')!=-1){
+                            var a=location.href.substring(location.href.length-5,location.href.length-1);
+                            if(a==='tags'){
+                                pagetitle.textContent = '五花八门';
+                            }else if(a==='ries'){
+                                pagetitle.textContent = '分门别类';
+                            }
+                        }
+                    </script>
                 
             </h5>
         </div>
@@ -190,25 +204,26 @@
 
 </header>
 
-<div class="container body-wrap fade">
-    
 
-    
+    <div class="container body-wrap fade">
+        
             
-            <h3 class="archive-separator">
-                <i class="icon icon-lg icon-folder-o"></i>&nbsp;&nbsp;
-                2020
-            </h3>
+            
+            <h5 class="tag-tip">
+                <i class="icon icon-tag"></i>
+                关于
+                <span style="color:rgb(100, 100, 100)">教程 搬运</span>
+                共1篇文章
+            </h5>
             <div class="waterfall">
-    
-
-        <article class="archive-article" onclick="location.href='/blog/posts/c7a8bb16/'">
+            
+                <article class="archive-article" onclick="location.href='/blog/posts/c7a8bb16/'">
     <div class="archive-article-date">
       
       <time class="my-post-time">
         <i class="icon icon-lg icon-file-text-o"></i>
         &nbsp;
-          03-28
+          2020-03-28
       </time>
     </div>
     <div class="archive-article-inner">
@@ -229,71 +244,10 @@
 
     </div>
   </article>
+            
+            </div>
+        
 
-    
-
-        <article class="archive-article" onclick="location.href='/blog/posts/f9a412f/'">
-    <div class="archive-article-date">
-      
-      <time class="my-post-time">
-        <i class="icon icon-lg icon-file-text-o"></i>
-        &nbsp;
-          03-25
-      </time>
-    </div>
-    <div class="archive-article-inner">
-      
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/blog/posts/f9a412f/">这是一个正式的博客</a>
-    </h3>
-  
-
-
-
-      <br/>
-      
-	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/%E9%9A%8F%E6%89%8B%E8%AE%B0%E5%BD%95/" rel="tag">随手记录</a></li></ul>
-
-    </div>
-  </article>
-
-    
-
-        <article class="archive-article" onclick="location.href='/blog/posts/c063e824/'">
-    <div class="archive-article-date">
-      
-      <time class="my-post-time">
-        <i class="icon icon-lg icon-file-text-o"></i>
-        &nbsp;
-          03-25
-      </time>
-    </div>
-    <div class="archive-article-inner">
-      
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/blog/posts/c063e824/">my_first_blog</a>
-    </h3>
-  
-
-
-
-      <br/>
-      
-	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/%E6%B5%8B%E8%AF%95/" rel="tag">测试</a></li></ul>
-
-    </div>
-  </article>
-
-    
-    </div>
-
-    
 </div>
 
         <footer class="footer">

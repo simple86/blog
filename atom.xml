@@ -6,7 +6,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="http://jiangzh.site/blog/"/>
-  <updated>2020-03-28T15:13:52.534Z</updated>
+  <updated>2020-03-28T15:33:03.323Z</updated>
   <id>http://jiangzh.site/blog/</id>
   
   <author>
@@ -21,16 +21,15 @@
     <link href="http://jiangzh.site/blog/posts/c7a8bb16/"/>
     <id>http://jiangzh.site/blog/posts/c7a8bb16/</id>
     <published>2020-03-28T14:50:26.000Z</published>
-    <updated>2020-03-28T15:13:52.534Z</updated>
+    <updated>2020-03-28T15:33:03.323Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="iOS-如何安装SSR客户端"><a href="#iOS-如何安装SSR客户端" class="headerlink" title="iOS 如何安装SSR客户端"></a>iOS 如何安装SSR客户端</h1><p>作者：Wesley King</p><hr><p><strong>前言</strong>：iOS 系统若想翻墙，需要一个 SSR客户端，比如Potatso，Netshuttle，shadowlink。但是大陆地区 Appstore 无靠谱SSR客户端，本文将解决此问题，对于搭建SSR不做详细阐述，如需要请查阅其它文章。以下操作需先将设备连上外网，可以下载一些试用VPN 软件，如 <a href="https://www.8cb2kwbyd.com/i/ZQ1GW7" target="_blank" rel="noopener">雷霆加速器</a> 。连上后再查找IP地址所在区域，可在浏览器直接搜索“IP”，即可查看。</p><hr><p> 具体操作</p><ol><li><p>进入国外 AppStore ，此操作需要一个非中国大陆的 Apple ID。</p></li><li><p>注册非国内 Apple ID（具体国家取决于IP所在地区）<br> 登陆 Apple ID 官网注册。 <a href="https://www.appleid.apple.com" target="_blank" rel="noopener">注册地址</a><br> 注意用邮箱注册 AppleID 时，有些邮箱无法注册，建议多试几种邮箱，如网易邮箱，谷歌邮箱。</p></li><li><p>退出原先登陆 Apple ID,登新注册的ID。</p></li><li><p>修改 ipad / iPhone 地区（具体国家那决于IP所在地区）<br> 打开设置点“通用”， 再点“语言和地区”。</p></li><li><p>进入 AppStore,下载 SSR 客户端<br> 可能一开始不能正常进入 Appstore, 多尝试几次，或重启设备。</p></li></ol><p>接下来就可以开心地玩耍了！ <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f606.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f606.png?v8">😆</span></p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+    <content type="html"><![CDATA[<h1 id="iOS-如何安装SSR客户端"><a href="#iOS-如何安装SSR客户端" class="headerlink" title="iOS 如何安装SSR客户端"></a>iOS 如何安装SSR客户端</h1><p>作者：Wesley King<br>合作：Mr. Simple</p><hr><p><strong>前言</strong>：iOS 系统若想通过SSR进行科学上网，需要一个 SSR客户端，比如Potatso，Netshuttle，shadowlink。但是大陆地区 Appstore 无靠谱SSR客户端<span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f611.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f611.png?v8">😑</span>，本文将解决此问题<span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f60f.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f60f.png?v8">😏</span>。<br>    对于搭建SSR不做详细阐述，如需要请查阅其它文章。以下操作需先将设备连上外网，可以下载一些试用VPN 软件，如 <a href="https://www.8cb2kwbyd.com/i/ZQ1GW7" target="_blank" rel="noopener">雷霆加速器</a> 。连上后再查找IP地址所在区域，可在浏览器直接搜索“IP”，即可查看。</p><hr><p> 具体操作</p><ol><li><p>进入国外 AppStore ，此操作需要一个非中国大陆的 Apple ID。</p></li><li><p>注册非国内 Apple ID（具体国家取决于IP所在地区）<br> 登陆 Apple ID 官网注册。 <a href="https://www.appleid.apple.com" target="_blank" rel="noopener">注册地址</a><br> 注意用邮箱注册 AppleID 时，有些邮箱无法注册，建议多试几种邮箱，如网易邮箱，谷歌邮箱。</p></li><li><p>退出原先登陆 Apple ID,登新注册的ID。</p></li><li><p>修改 ipad / iPhone 地区（具体国家那决于IP所在地区）<br> 打开设置点“通用”， 再点“语言和地区”。</p></li><li><p>进入 AppStore,下载 SSR 客户端<br> 可能一开始不能正常进入 Appstore, 多尝试几次，或重启设备。</p></li></ol><p>接下来就可以开心地玩耍了！ <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f606.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f606.png?v8">😆</span></p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h1 id=&quot;iOS-如何安装SSR客户端&quot;&gt;&lt;a href=&quot;#iOS-如何安装SSR客户端&quot; class=&quot;headerlink&quot; title=&quot;iOS 如何安装SSR客户端&quot;&gt;&lt;/a&gt;iOS 如何安装SSR客户端&lt;/h1&gt;&lt;p&gt;作者：Wesley King&lt;/p&gt;
-&lt;hr
+        &lt;h1 id=&quot;iOS-如何安装SSR客户端&quot;&gt;&lt;a href=&quot;#iOS-如何安装SSR客户端&quot; class=&quot;headerlink&quot; title=&quot;iOS 如何安装SSR客户端&quot;&gt;&lt;/a&gt;iOS 如何安装SSR客户端&lt;/h1&gt;&lt;p&gt;作者：Wesley King&lt;br&gt;合作：M
       
     
     </summary>

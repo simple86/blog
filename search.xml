@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>codeforces Round#623 Recommendations</title>
+    <url>/blog//posts/undefined/</url>
+    <content><![CDATA[<p><a href="https://codeforces.com/contest/1315/problem/D" target="_blank" rel="noopener">题目链接</a></p>
+<h2 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a>题目大意</h2><p>有n类书，对于第i类，有a<del>i</del> 版书，可花费t<del>i</del>的时间增加一版，求最小花费使得每类书的版数不重复。</p>
+<h2 id="O-n-2-解法"><a href="#O-n-2-解法" class="headerlink" title="O(n^2)解法"></a>O(n^2)解法</h2><p>a<del>i</del>从小到大对n类书排序，对于数目为x的k类书，选取花费最大的一类不变，其他k-1类书数目变为x+1，总花费加上这k-1类花费的和。</p>
+<p>本菜鸡绞尽脑汁想了好几种方式，试图摆脱TLE/MLE，一一宣告失败 <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f629.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f629.png?v8">😩</span><br>几种不同的实现方式如下：</p>
+<a id="more"></a>
+<figure class="highlight cpp"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">2e5</span>+<span class="number">5</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="keyword">int</span> a[maxn], n;</span><br><span class="line">ll ans;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">read</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="keyword">int</span> x = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">char</span> c = getchar();</span><br><span class="line">    <span class="keyword">while</span>(c &lt; <span class="string">'0'</span> || c &gt; <span class="string">'9'</span>) c = getchar();</span><br><span class="line">    <span class="keyword">while</span>(c &gt;= <span class="string">'0'</span> &amp;&amp; c &lt;= <span class="string">'9'</span>)</span><br><span class="line">    {</span><br><span class="line">        x = x * <span class="number">10</span> + c-<span class="string">'0'</span>;</span><br><span class="line">        c = getchar();</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> x;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="priority-queue-lt-category-gt-q大法"><a href="#priority-queue-lt-category-gt-q大法" class="headerlink" title="priority_queue<category> q大法"></a><code>priority_queue&lt;category&gt; q</code>大法</h3><figure class="highlight cpp"><table><tbody><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">category</span></span></span><br><span class="line"><span class="class">{</span></span><br><span class="line">    <span class="keyword">int</span> num, time;</span><br><span class="line">    <span class="keyword">bool</span> <span class="keyword">operator</span> &lt; (<span class="keyword">const</span> category &amp; e)<span class="keyword">const</span></span><br><span class="line">    {</span><br><span class="line">        <span class="keyword">if</span>(num != e.num) <span class="keyword">return</span> num &lt; e.num;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> time &gt; e.time;</span><br><span class="line">    }</span><br><span class="line">}cat[maxn];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">	n = read();</span><br><span class="line">	priority_queue&lt;category&gt; q;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i ++) a[i] = read();</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i ++) q.push({a[i], read()});</span><br><span class="line">	<span class="keyword">while</span>(q.size())</span><br><span class="line">    {</span><br><span class="line">        <span class="keyword">int</span> number = q.top().num;</span><br><span class="line">        q.pop();</span><br><span class="line">		<span class="keyword">int</span> i = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(q.size() &amp;&amp; q.top().num == number)</span><br><span class="line">        {</span><br><span class="line">            category temp = q.top();</span><br><span class="line">            q.pop();</span><br><span class="line">            temp.num += i;</span><br><span class="line">            ans += (ll)temp.time * i;</span><br><span class="line">            q.push(temp);</span><br><span class="line">			i ++;</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; ans &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="map-lt-int-vector-lt-int-gt-gt-大法"><a href="#map-lt-int-vector-lt-int-gt-gt-大法" class="headerlink" title="map<int, vector<int>>大法"></a><code>map&lt;int, vector&lt;int&gt;&gt;</code>大法</h3>  <figure class="highlight cpp"><table><tbody><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">	n = read();</span><br><span class="line">	<span class="built_in">map</span>&lt;<span class="keyword">int</span>, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; mp;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i ++) a[i] = read();</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i ++)</span><br><span class="line">    {</span><br><span class="line">        <span class="keyword">if</span>(mp.find(a[i]) == mp.end()) mp[num[i]] = {};</span><br><span class="line">        mp[num[i]].push_back(read());</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">auto</span> it = mp.begin(); it != mp.end(); it ++)</span><br><span class="line">    {</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp;temp = it -&gt; second;</span><br><span class="line">        <span class="keyword">int</span> number = it -&gt; first + <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span>(temp.size() &gt; <span class="number">1</span>)</span><br><span class="line">        {</span><br><span class="line">            <span class="keyword">int</span> maxt = temp[<span class="number">0</span>];</span><br><span class="line">            <span class="keyword">int</span> k = <span class="number">0</span>;</span><br><span class="line">            ans = ans + temp[<span class="number">0</span>];</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; temp.size(); i ++)</span><br><span class="line">            {</span><br><span class="line">                ans += temp[i];</span><br><span class="line">                <span class="keyword">if</span>(temp[i] &gt; maxt)</span><br><span class="line">                {</span><br><span class="line">                    maxt = temp[i];</span><br><span class="line">                    k = i;</span><br><span class="line">                }</span><br><span class="line">            }</span><br><span class="line">            ans = ans - maxt;</span><br><span class="line">            temp.erase(temp.begin() + k);</span><br><span class="line">            <span class="keyword">if</span>(mp.find(number) == mp.end()) mp[number] = temp;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">auto</span> x:temp) mp[number].push_back(x);</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; ans &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="dfs大法"><a href="#dfs大法" class="headerlink" title="dfs大法"></a><strong>dfs</strong>大法</h3>  <figure class="highlight cpp"><table><tbody><tr><td class="code"><pre><span class="line"><span class="built_in">unordered_map</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; mp;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> t)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">	<span class="keyword">if</span>(mp.count(x) == <span class="number">0</span>)</span><br><span class="line">	{</span><br><span class="line">		mp[x] = t;</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	}</span><br><span class="line">	<span class="keyword">int</span> small = min(t, mp[x]);</span><br><span class="line">	<span class="keyword">int</span> large = max(t, mp[x]);</span><br><span class="line">	mp[x] = large;</span><br><span class="line">	ans += small;</span><br><span class="line">	dfs(x + <span class="number">1</span>, small);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">	n = read();</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i ++) a[i] = read();</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i ++) dfs(a[i], read());</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; ans &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="O-nlogn-解法"><a href="#O-nlogn-解法" class="headerlink" title="O(nlogn)解法"></a>O(nlogn)解法</h2><p>用一个集合维护数目为x的所有书类的花费，用一个变量sum记录集合中所有值的和。每次留下一个max，所有书类数目+1，总花费 += sum - max，sum减去max变为数目为x+1的所有书类花费和。具体见代码：</p>
+<figure class="highlight cpp"><table><tbody><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">	n = read();</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i ++) cat[i].num = read();</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i ++) cat[i].time = read();</span><br><span class="line">	sort(cat, cat + n);</span><br><span class="line">	<span class="keyword">int</span> now = <span class="number">-1</span>; </span><br><span class="line">	<span class="keyword">long</span> <span class="keyword">long</span> sum = <span class="number">0</span>;</span><br><span class="line">	priority_queue&lt;<span class="keyword">long</span> <span class="keyword">long</span>&gt; q; <span class="comment">//用于维护数目为now时的花费集合</span></span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i ++)</span><br><span class="line">	{</span><br><span class="line">		<span class="comment">//清算数目cat[i - 1].num至cat[i].num - 1的花费</span></span><br><span class="line">		<span class="keyword">while</span>(q.size() &amp;&amp; now &lt; cat[i].num)</span><br><span class="line">		{</span><br><span class="line">			sum -= q.top();</span><br><span class="line">			q.pop();</span><br><span class="line">			ans += sum;</span><br><span class="line">			now ++;</span><br><span class="line">		}</span><br><span class="line">		q.push(cat[i].time);</span><br><span class="line">		sum += cat[i].time;</span><br><span class="line">		now = cat[i].num;</span><br><span class="line">	}</span><br><span class="line">	<span class="keyword">while</span>(q.size()) <span class="comment">//计算数目 &gt;= cat[n - 1].num的所有花费</span></span><br><span class="line">	{</span><br><span class="line">		sum -= q.top();</span><br><span class="line">		q.pop();</span><br><span class="line">		ans += sum;</span><br><span class="line">	}</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; ans &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>不知道怎么给这种优化方法起名，但是我这种菜鸡真的不容易想到！<span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f611.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f611.png?v8">😑</span></p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+      <categories>
+        <category>codeforces</category>
+      </categories>
+      <tags>
+        <tag>题解</tag>
+        <tag>codeforces</tag>
+        <tag>贪心</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>iOS如何安装SSR客户端</title>
+    <url>/blog//posts/c7a8bb16/</url>
+    <content><![CDATA[<h1 id="iOS-如何安装SSR客户端"><a href="#iOS-如何安装SSR客户端" class="headerlink" title="iOS 如何安装SSR客户端"></a>iOS 如何安装SSR客户端</h1><p>作者：Wesley King<br>合作：Mr. Simple</p>
+<hr>
+<p><strong>前言</strong>：iOS 系统若想通过SSR进行科学上网，需要一个 SSR客户端，比如Potatso，Netshuttle，shadowlink。但是大陆地区 Appstore 无靠谱SSR客户端<span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f611.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f611.png?v8">😑</span>，本文将解决此问题<span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f60f.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f60f.png?v8">😏</span>。<br>    对于搭建SSR不做详细阐述，如需要请查阅其它文章。以下操作需先将设备连上外网，可以下载一些试用VPN 软件，如 <a href="https://www.8cb2kwbyd.com/i/ZQ1GW7" target="_blank" rel="noopener">雷霆加速器</a> 。连上后再查找IP地址所在区域，可在浏览器直接搜索“IP”，即可查看。</p>
+<hr>
+<p> 具体操作</p>
+<ol>
+<li><p>进入国外 AppStore ，此操作需要一个非中国大陆的 Apple ID。</p>
+</li>
+<li><p>注册非国内 Apple ID（具体国家取决于IP所在地区）<br> 登陆 Apple ID 官网注册。 <a href="https://www.appleid.apple.com" target="_blank" rel="noopener">注册地址</a><br> 注意用邮箱注册 AppleID 时，有些邮箱无法注册，建议多试几种邮箱，如网易邮箱，谷歌邮箱。</p>
+</li>
+<li><p>退出原先登陆 Apple ID,登新注册的ID。</p>
+</li>
+<li><p>修改 ipad / iPhone 地区（具体国家那决于IP所在地区）<br> 打开设置点“通用”， 再点“语言和地区”。</p>
+</li>
+<li><p>进入 AppStore,下载 SSR 客户端<br> 可能一开始不能正常进入 Appstore, 多尝试几次，或重启设备。</p>
+</li>
+</ol>
+<p>接下来就可以开心地玩耍了！ <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f606.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f606.png?v8">😆</span></p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+      <tags>
+        <tag>教程</tag>
+        <tag>搬运</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>这是一个正式的博客</title>
+    <url>/blog//posts/f9a412f/</url>
+    <content><![CDATA[<h2 id="这是一个正式的博客"><a href="#这是一个正式的博客" class="headerlink" title="这是一个正式的博客"></a>这是一个正式的博客</h2><p>  经过了一天半的折腾，博客算是有了雏形吧，还是挺开心的。<br>这么一折腾，原本对前端一无所知的我，算是对git、web又多了那么一点理解。<br>  本来合计总结总结今天的收获，可正因为我懂得太少，许多东西还没有理解，概括起来还真挺麻烦。索性不说了。<br>  <del>（不是我懒不是我懒不是我懒！）</del></p>
+<h2 id="几个问题："><a href="#几个问题：" class="headerlink" title="几个问题："></a>几个问题：</h2><pre><code>1. git clone 速度奇慢（1kB/s - 15kB/s)，如何解？
+2. 下载（包括下载各种包）速度经常*呈现刚开始快，随后慢慢下降，甚至因为慢而下载失败*的现象，是什么原因呢？
+3. 为什么这么多人喜欢吃香菜呢？？？
+附加. 这Markdown语法是怎么回事啊？？？</code></pre><script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+      <tags>
+        <tag>随手记录</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>my_first_blog</title>
+    <url>/blog//posts/c063e824/</url>
+    <content><![CDATA[<h1 id="发一个blog试试水"><a href="#发一个blog试试水" class="headerlink" title="发一个blog试试水"></a>发一个blog试试水</h1><p>我的地盘我做主！</p>
+<a id="more"></a>
+<p>地盘我做主！<br>盘我做主！<br>我做主！<br>做主！<br>主！<br>！</p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+      <tags>
+        <tag>测试</tag>
+      </tags>
+  </entry>
+</search>
